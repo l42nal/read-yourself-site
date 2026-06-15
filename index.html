@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Читай себя</title>
+<title>Верита</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600&family=Cormorant+Garamond:ital,wght@0,400;0,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #faf8f5;
-  --paper: #f0ebe3;
-  --ink: #2c2925;
-  --ink-soft: #5c564d;
-  --accent: #8b7355;
-  --accent-light: #c4a77d;
-  --shadow: rgba(44, 41, 37, 0.08);
-  --shadow-strong: rgba(44, 41, 37, 0.12);
+  --cream: #fdf8f6;
+  --paper: #f5ebe8;
+  --ink: #3d2f2e;
+  --ink-soft: #6b5a58;
+  --accent: #b8897a;
+  --accent-light: #d4b5a8;
+  --rose: #e8c4b8;
+  --shadow: rgba(61, 47, 46, 0.08);
+  --shadow-strong: rgba(61, 47, 46, 0.12);
 }
 
 * { box-sizing: border-box; }
@@ -55,11 +56,19 @@ h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(4rem, 10vw, 6rem);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   line-height: 1.1;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   color: var(--ink);
-  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 h2 {
@@ -90,7 +99,7 @@ h2 {
   right: -20%;
   width: 60%;
   height: 100%;
-  background: radial-gradient(ellipse, rgba(196, 167, 125, 0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(232, 196, 184, 0.35) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -246,6 +255,27 @@ ul {
   color: var(--ink-soft);
 }
 
+.card-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 28px 0 12px;
+}
+
+.card-subtitle:first-child {
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
 /* Video placeholders */
 .video {
   position: relative;
@@ -312,7 +342,7 @@ ul {
   padding: 14px 28px;
   font-size: 0.95rem;
   font-weight: 500;
-  background: linear-gradient(135deg, var(--accent) 0%, #6b5a45 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #9a7268 100%);
   color: white;
   border-radius: 12px;
   text-decoration: none;
@@ -322,15 +352,43 @@ ul {
 
 .material-card a.download-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(139, 115, 85, 0.35);
+  box-shadow: 0 8px 24px rgba(184, 137, 122, 0.35);
 }
 
 /* Pricing */
 .pricing {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 32px;
+}
+
+.price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.price-list li {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(184, 137, 122, 0.15);
+}
+
+.price-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.price-list strong {
+  display: block;
+  color: var(--accent);
+  font-size: 1.35rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 .price {
@@ -379,7 +437,7 @@ button {
   font-size: 1rem;
   font-weight: 500;
   border: none;
-  background: linear-gradient(135deg, var(--accent) 0%, #6b5a45 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #9a7268 100%);
   color: white;
   border-radius: 12px;
   cursor: pointer;
@@ -389,7 +447,7 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(139, 115, 85, 0.35);
+  box-shadow: 0 8px 24px rgba(184, 137, 122, 0.35);
 }
 
 button:active {
@@ -416,6 +474,10 @@ footer a {
 
 footer a:hover { color: var(--accent-light); }
 
+@media (max-width: 1100px) {
+  .pricing { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -431,7 +493,6 @@ footer a:hover { color: var(--accent-light); }
 
 @media (max-width: 700px) {
   section { padding: 80px 24px; }
-  .pricing { grid-template-columns: 1fr; }
   .hero-photo img { width: 300px; height: 300px; }
   .founder-photo img { width: 260px; height: 260px; }
 }
@@ -445,13 +506,13 @@ footer a:hover { color: var(--accent-light); }
 <section class="hero">
 
 <div class="hero-photo">
-  <img src="founder2.jpg" alt="Муштакова Катерина Денисовна">
+  <img src="founder2.jpg" alt="Катерина Денисовна">
 </div>
 
 <div class="hero-content">
-  <h1 class="hero-title">Читай себя</h1>
-  <p>Основательница клуба<br>
-  <b class = "founder-name">Муштакова Катерина Денисовна</b></p>
+  <h1 class="hero-title">Верита</h1>
+  <p class="hero-subtitle">Пространство соединения ума, тела и души</p>
+  <p>Основательница: Катерина Денисовна</p>
 </div>
 
 </section>
@@ -460,22 +521,26 @@ footer a:hover { color: var(--accent-light); }
 <section class="reveal">
 
 <div class="quote">
-Твои мысли — пища для построения твоей жизни.<br>
-Каковы мысли — такова реальность.
+Твои мысли — пища для твоей души.<br>
+Твое тело — храм для твоего духа.<br>
+Твоя искренность — мост к любви.
 </div>
+
+</section>
+
+
+<section class="reveal">
+
+<h2>О чем наше пространство?</h2>
 
 <div class="card reveal">
 
 <p>
-
-Клуб «Читай себя» — безопасное пространство, где через обсуждение научной психологической литературы ты станешь ближе к себе и начнешь путь, где твоя главная опора — это ты.
-
+Пространство «Верита» родилось из простой мысли: человек — это не только голова и не только тело. Мы не можем понять себя, читая умные книги, если наше тело зажато тревогой. И не можем расслабиться физически, если внутри не проговорены важные чувства.
 </p>
 
 <p>
-
-Мы создаем пространство заботы, поддержки и честного разговора о себе, опираясь на доказательную психологию.
-
+Поэтому был создан формат, в котором мы работаем с состоянием человека сразу на нескольких уровнях: через глубокое общение и через физическую практику — хатха-йогу.
 </p>
 
 </div>
@@ -485,17 +550,27 @@ footer a:hover { color: var(--accent-light); }
 
 <section class="reveal">
 
-<h2>Что в клубе?</h2>
+<h2>Что в нашем пространстве?</h2>
 
 <div class="card">
 
+<h3 class="card-subtitle">Для новичков</h3>
+<p>
+Мягкое знакомство с психологией через обсуждение качественной психологической литературы. Участники могут делиться личным опытом (по желанию), а совместный анализ помогает находить глубокие смыслы и практические выводы.
+</p>
+
+<h3 class="card-subtitle">Для постоянных участников</h3>
+<p>
+Последовательное и комплексное изучение тем. Программа выстроена таким образом, что каждая новая книга дополняет общую картину и помогает лучше понимать себя и свою личность.
+</p>
+
+<h3 class="card-subtitle">Для каждого участника</h3>
 <ul>
-<li>Подобранная научная психологическая литература</li>
+<li>Сообщество единомышленников и практические инструменты для саморазвития</li>
+<li>Подобранная научно-популярная психологическая литература и конспекты книг</li>
 <li>Живые встречи в Москве</li>
-<li>Комьюнити людей, которые хотят услышать себя</li>
+<li>Практика классической хатха-йоги</li>
 <li>Закрытый канал с поддержкой и обсуждениями</li>
-<li>Библиотека с конспектами книг</li>
-<li>Приглашенные эксперты</li>
 </ul>
 
 </div>
@@ -508,7 +583,7 @@ footer a:hover { color: var(--accent-light); }
 <h2>Наши встречи</h2>
 
 <div class="video-embed reveal">
-  <iframe src="https://www.youtube.com/embed/Z1TvH5GzSrY" title="Видео встречи клуба Читай себя" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/Z1TvH5GzSrY" title="Видео встречи пространства Верита" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 <p style="text-align:center;margin-top:20px;">
@@ -537,47 +612,45 @@ footer a:hover { color: var(--accent-light); }
 
 <div class="price">
 
-<h3>Разовое посещение</h3>
+<h3>Книжная беседа</h3>
 
-<p>
-• Живое мероприятие<br>
-• Обсуждение книги<br>
-• Участие приглашенного эксперта
-</p>
-
-<h2>750 ₽</h2>
+<ul class="price-list">
+<li>Билет на одного участника<strong>750 ₽</strong></li>
+<li>Билет по акции «1+1»<strong>1111 ₽</strong></li>
+<li>Абонемент на 3 занятия<strong>1700 ₽</strong></li>
+</ul>
 
 </div>
 
 
 <div class="price">
 
-<h3>Абонемент</h3>
+<h3>Йога</h3>
 
-<p>4 мероприятия*</p>
-
-<ul>
-<li>Бегство от свободы — Эрих Фромм</li>
-<li>Человек для себя — Эрих Фромм</li>
-<li>Здоровое общество — Эрих Фромм</li>
-<li>Революция надежды — Эрих Фромм</li>
+<ul class="price-list">
+<li>Билет на одного участника<strong>750 ₽</strong></li>
+<li>Билет по акции «1+1»<strong>1111 ₽</strong></li>
+<li>Абонемент на 3 занятия<strong>1700 ₽</strong></li>
 </ul>
 
-<p class="price-note">* Выбор книги на мероприятие может меняться по единогласному запросу, предоставленному в установленный срок, от купивших абонемент.</p>
+</div>
 
-<h2>2400 ₽</h2>
+
+<div class="price">
+
+<h3>Йога + книжная беседа</h3>
+
+<ul class="price-list">
+<li>Билет на одного участника<strong>1500 ₽</strong></li>
+<li>Билет по акции «1+1»<strong>1111 ₽</strong></li>
+<li>Абонемент на 3 занятия<strong>3000 ₽</strong></li>
+</ul>
 
 </div>
 
 </div>
 
 <div class="card" style="text-align:center;margin-top:30px;">
-
-<h3>Постоянная акция</h3>
-
-<h2>1+1 = 1111 ₽</h2>
-
-<p>Разовое посещение для двух человек</p>
 
 <button onclick="window.location.href='https://t.me/readyourself1'">
 Узнать об анонсе
